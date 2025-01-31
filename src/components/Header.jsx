@@ -1,8 +1,10 @@
-function Header(currentScore, highScore) {
-  <>
-    <div>Current Score: {currentScore}</div>
-    <div>High Score: {highScore}</div>
-  </>;
+function Header({ currentScore, highScore }) {
+  return (
+    <>
+      <div>Current Score: {currentScore}</div>
+      <div>High Score: {highScore}</div>
+    </>
+  );
 }
 
 export default Header;
