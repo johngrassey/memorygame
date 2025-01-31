@@ -1,9 +1,13 @@
-import { useState } from "react";
+//import { useState } from "react";
+import Header from "./components/Header";
 
 function App() {
+  let currentScore = 0;
+  let highScore = 0;
+
   return (
     <>
-      <div>Hello, World!</div>
+      <Header highScore={highScore} currentScore={currentScore} />
     </>
   );
 }
