@@ -25,6 +25,7 @@ function Pokemon() {
           id: data.id,
           name: data.name,
           sprites: data.sprites.front_default,
+          selected: false,
         };
       });
 
