@@ -1,5 +1,6 @@
 //import { useState } from "react";
 import Header from "./components/Header";
+import Pokemon from "./Pokemon";
 
 function App() {
   let currentScore = 0;
@@ -17,6 +18,7 @@ function App() {
   return (
     <>
       <Header highScore={highScore} currentScore={currentScore} />
+      <Pokemon />
     </>
   );
 }
