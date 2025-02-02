@@ -36,48 +36,45 @@ function App() {
     setPokemon(pokemonData);
   };
 
-  useEffect(() => {
-    fetchPokemon();
-  }, []);
-
   const shufflePokemon = () => {
     const shuffledPokemon = pokemon.sort(() => Math.random() - 0.5);
     setPokemon(shuffledPokemon);
   };
 
-  const selectPokemon = (id) => {
+  const handleCardClick = (id) => {
     const updatedPokemon = pokemon.map((poke) => {
       if (poke.id === id) {
         if (poke.selected) {
-          resetScore();
-          shufflePokemon();
+          resetGame();
         } else {
-          incrementScore();
           poke.selected = true;
+          incrementScore();
         }
       }
       return poke;
     });
-
-    setPokemon(updatedPokemon);
   };
 
   const incrementScore = () => {
-    currentScore += 1;
-    setCurrentScore(currentScore);
-    if (currentScore > highScore) {
-      setHighScore(currentScore);
+    setCurrentScore(currentScore + 1);
+    if (currentScore >= highScore) {
+      setHighScore(currentScore + 1);
     }
   };
 
-  const resetScore = () => {
+  const resetGame = () => {
     setCurrentScore(0);
+    fetchPokemon();
   };
+
+  useEffect(() => {
+    fetchPokemon();
+  }, []);
 
   return (
     <>
       <Header highScore={highScore} currentScore={currentScore} />
-      <CardGrid pokemon={pokemon} />
+      <CardGrid pokemon={pokemon} handleClick={handleCardClick} />
     </>
   );
 }
