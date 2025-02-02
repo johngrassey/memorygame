@@ -1,16 +1,13 @@
-import Pokemon from "../Pokemon";
 import Card from "./card";
 
-function CardGrid() {
+function CardGrid({ pokemon }) {
   return (
-    <div class="cardgrid">
-      {Pokemon.map((pokemon) => (
-        <Card
-          key={pokemon.id}
-          name={pokemon.name}
-          image={pokemon.sprites.front_default}
-        />
+    <div className="cardgrid">
+      {pokemon.map((poke) => (
+        <Card key={poke.id} name={poke.name} image={poke.sprites} />
       ))}
     </div>
   );
 }
+
+export default CardGrid;
