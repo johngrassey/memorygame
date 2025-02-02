@@ -3,12 +3,11 @@ import Header from "./components/Header";
 import CardGrid from "./components/CardGrid";
 
 function App() {
-  let currentScore = 0;
-  let highScore = 0;
-
   const NUMBER_OF_POKEMON = 16;
   const TOTAL_POKEMON = 1025;
   const [pokemon, setPokemon] = useState([]);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
 
   const fetchPokemon = async () => {
     let pokemonIds = [];
@@ -65,11 +64,14 @@ function App() {
 
   const incrementScore = () => {
     currentScore += 1;
-    highScore = Math.max(currentScore, highScore);
+    setCurrentScore(currentScore);
+    if (currentScore > highScore) {
+      setHighScore(currentScore);
+    }
   };
 
   const resetScore = () => {
-    currentScore = 0;
+    setCurrentScore(0);
   };
 
   return (
