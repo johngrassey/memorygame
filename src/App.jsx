@@ -36,9 +36,16 @@ function App() {
     setPokemon(pokemonData);
   };
 
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
   const shufflePokemon = () => {
-    const shuffledPokemon = pokemon.sort(() => Math.random() - 0.5);
-    setPokemon(shuffledPokemon);
+    setPokemon((prevPokemon) => shuffleArray([...prevPokemon]));
   };
 
   const handleCardClick = (id) => {
@@ -49,6 +56,7 @@ function App() {
         } else {
           poke.selected = true;
           incrementScore();
+          shufflePokemon();
         }
       }
       return poke;
