@@ -15,6 +15,10 @@
 
 /* JG Styles */
 
+body {
+  background-color: #f2fbe0;
+}
+
 .cardgrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -38,5 +42,31 @@
 
 .card h2 {
   font-size: 1.75rem;
+  margin: 0px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0px;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+}
+
+.score {
+  font-size: 1.5rem;
+  margin: 0px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+h3 {
   margin: 0px;
 }
