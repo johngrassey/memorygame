@@ -49,18 +49,19 @@ function App() {
   };
 
   const handleCardClick = (id) => {
-    const updatedPokemon = pokemon.map((poke) => {
-      if (poke.id === id) {
-        if (poke.selected) {
-          resetGame();
-        } else {
-          poke.selected = true;
-          incrementScore();
-          shufflePokemon();
-        }
-      }
-      return poke;
-    });
+    const clickedPokemon = pokemon.find((poke) => poke.id === id);
+
+    if (clickedPokemon.selected) {
+      resetGame();
+    } else {
+      setPokemon(
+        pokemon.map((poke) =>
+          poke.id === id ? { ...poke, selected: true } : poke
+        )
+      );
+      incrementScore();
+      shufflePokemon();
+    }
   };
 
   const incrementScore = () => {
