@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import CardGrid from "./components/CardGrid";
 
 function App() {
-  const NUMBER_OF_POKEMON = 16;
+  const NUMBER_OF_POKEMON = 5;
   const TOTAL_POKEMON = 1025;
   const [pokemon, setPokemon] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
