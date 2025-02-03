@@ -16,7 +16,7 @@
 
 body {
   background-color: #f2fbe0;
-  font-family: "Pixelify Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Jersey 10", system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 .cardgrid {
@@ -107,7 +107,7 @@ button {
   padding: 10px 20px;
   font-size: 1.5rem;
   cursor: pointer;
-  font-family: "Pixelify Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Jersey 10", system-ui, Avenir, Helvetica, Arial, sans-serif;
   border-radius: 10px;
   background-color: #44ccff;
 }
