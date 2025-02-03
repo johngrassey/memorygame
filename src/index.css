@@ -77,6 +77,12 @@ h3 {
   margin: 0px;
 }
 
+.help {
+  font-size: 2rem;
+  margin: 0px;
+  text-align: center;
+}
+
 /* Start Page */
 
 .startpage {
