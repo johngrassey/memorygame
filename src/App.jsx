@@ -73,6 +73,7 @@ function App() {
   };
 
   const resetGame = () => {
+    setDifficulty("");
     setCurrentScore(0);
     fetchPokemon();
   };
@@ -86,7 +87,11 @@ function App() {
   } else {
     return (
       <>
-        <Header highScore={highScore} currentScore={currentScore} />
+        <Header
+          highScore={highScore}
+          currentScore={currentScore}
+          handleClick={resetGame}
+        />
         <CardGrid pokemon={pokemon} handleClick={handleCardClick} />
       </>
     );
