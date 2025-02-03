@@ -134,6 +134,11 @@ button {
   padding: 50px;
 }
 
+.modal p {
+  font-size: 1.5rem;
+  margin: 0px 0px 10px 0px;
+}
+
 .modal-content {
   background-color: white;
   padding: 20px;
