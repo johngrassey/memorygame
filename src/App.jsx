@@ -75,7 +75,7 @@ function App() {
   const resetGame = () => {
     setDifficulty("");
     setCurrentScore(0);
-    fetchPokemon();
+    setPokemon([]);
   };
 
   useEffect(() => {
