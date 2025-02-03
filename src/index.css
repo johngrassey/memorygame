@@ -70,3 +70,35 @@ header {
 h3 {
   margin: 0px;
 }
+
+/* Start Page */
+
+.startpage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.startpage h1 {
+  font-size: 5rem;
+  margin: 0px;
+}
+
+.startpage p {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.startbtns {
+  display: flex;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.startbtns button {
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}

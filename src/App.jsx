@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import CardGrid from "./components/CardGrid";
+import StartPage from "./components/StartPage";
 
 function App() {
-  const NUMBER_OF_POKEMON = 16;
   const TOTAL_POKEMON = 150;
   const [pokemon, setPokemon] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
+  const [difficulty, setDifficulty] = useState("");
 
   const fetchPokemon = async () => {
     let pokemonIds = [];
 
-    while (pokemonIds.length < NUMBER_OF_POKEMON) {
+    while (pokemonIds.length < difficulty) {
       const pokemonId = Math.floor(Math.random() * TOTAL_POKEMON) + 1;
       if (!pokemonIds.includes(pokemonId)) {
         pokemonIds.push(pokemonId);
@@ -78,14 +79,18 @@ function App() {
 
   useEffect(() => {
     fetchPokemon();
-  }, []);
+  }, [difficulty]);
 
-  return (
-    <>
-      <Header highScore={highScore} currentScore={currentScore} />
-      <CardGrid pokemon={pokemon} handleClick={handleCardClick} />
-    </>
-  );
+  if (difficulty === "") {
+    return <StartPage setDifficulty={setDifficulty} />;
+  } else {
+    return (
+      <>
+        <Header highScore={highScore} currentScore={currentScore} />
+        <CardGrid pokemon={pokemon} handleClick={handleCardClick} />
+      </>
+    );
+  }
 }
 
 export default App;
