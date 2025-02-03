@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import CardGrid from "./components/CardGrid";
 import StartPage from "./components/StartPage";
+import GameModal from "./components/GameModal";
 
 function App() {
   const TOTAL_POKEMON = 150;
@@ -9,6 +10,8 @@ function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [difficulty, setDifficulty] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [win, setWin] = useState(false);
 
   const fetchPokemon = async () => {
     let pokemonIds = [];
@@ -53,7 +56,7 @@ function App() {
     const clickedPokemon = pokemon.find((poke) => poke.id === id);
 
     if (clickedPokemon.selected) {
-      resetGame();
+      setShowModal(true);
     } else {
       setPokemon(
         pokemon.map((poke) =>
@@ -61,6 +64,10 @@ function App() {
         )
       );
       incrementScore();
+      if (currentScore + 1 === difficulty) {
+        setWin(true);
+        setShowModal(true);
+      }
       shufflePokemon();
     }
   };
@@ -76,6 +83,7 @@ function App() {
     setDifficulty("");
     setCurrentScore(0);
     setPokemon([]);
+    setShowModal(false);
   };
 
   useEffect(() => {
@@ -91,8 +99,23 @@ function App() {
           highScore={highScore}
           currentScore={currentScore}
           handleClick={resetGame}
+          show={true}
         />
         <CardGrid pokemon={pokemon} handleClick={handleCardClick} />
+        {showModal && (
+          <GameModal
+            header="Womp Womp!"
+            message="You Lost The Game"
+            onRestart={resetGame}
+          />
+        )}
+        {win && (
+          <GameModal
+            header="Congratulations!"
+            message="You Won The Game"
+            onRestart={resetGame}
+          />
+        )}
       </>
     );
   }
